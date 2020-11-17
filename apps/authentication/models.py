@@ -16,7 +16,8 @@ class MyCustomUser(AbstractUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(MyCustomUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(MyCustomUser, on_delete=models.CASCADE,
+                                related_name='profile')
     profile_pic = models.ImageField(upload_to='profile_images/')
     date_of_birth = models.DateField()
     bio = models.TextField(null=True, blank=True)
